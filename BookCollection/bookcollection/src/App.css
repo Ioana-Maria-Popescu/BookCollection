@@ -1,10 +1,89 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
+#root {
+  position: relative;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Curved triangle styles */
+.corner {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  background: #ff6347;
+  z-index: 1000;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 60px;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: 60px;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-top-right-radius: 60px;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-top-left-radius: 60px;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #root {
+    padding: 10px;
+  }
+  
+  .corner {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .top-left {
+    border-bottom-right-radius: 40px;
+  }
+  
+  .top-right {
+    border-bottom-left-radius: 40px;
+  }
+  
+  .bottom-left {
+    border-top-right-radius: 40px;
+  }
+  
+  .bottom-right {
+    border-top-left-radius: 40px;
+  }
+  
+  h1 {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}
+
+/* Your existing styles */
 .logo {
   height: 6em;
   padding: 1.5em;
