@@ -6,43 +6,43 @@ body, html {
 }
 
 #root {
-  position: relative;
-  min-height: 100vh;
-  padding: 20px;
-  box-sizing: border-box;
+    position: relative;
+    /*min-height: 100vh;*/
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Curved triangle styles */
 .corner {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  background: #ff6347;
-  z-index: 1000;
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background: lightcoral;
+    z-index: 1000;
 }
 
 .top-left {
   top: 0;
   left: 0;
-  border-bottom-right-radius: 60px;
+  border-bottom-right-radius: 200px;
 }
 
 .top-right {
   top: 0;
   right: 0;
-  border-bottom-left-radius: 60px;
+  border-bottom-left-radius: 200px;
 }
 
 .bottom-left {
   bottom: 0;
   left: 0;
-  border-top-right-radius: 60px;
+  border-top-right-radius: 200px;
 }
 
 .bottom-right {
   bottom: 0;
   right: 0;
-  border-top-left-radius: 60px;
+  border-top-left-radius: 200px;
 }
 
 h1 {
@@ -52,35 +52,35 @@ h1 {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  #root {
-    padding: 10px;
-  }
-  
-  .corner {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .top-left {
-    border-bottom-right-radius: 40px;
-  }
-  
-  .top-right {
-    border-bottom-left-radius: 40px;
-  }
-  
-  .bottom-left {
-    border-top-right-radius: 40px;
-  }
-  
-  .bottom-right {
-    border-top-left-radius: 40px;
-  }
-  
-  h1 {
-    font-size: 20px;
-    margin-top: 10px;
-  }
+    #root {
+        padding: 10px;
+    }
+
+    .corner {
+        width: 40px;
+        height: 40px;
+    }
+
+    .top-left {
+        border-bottom-right-radius: 150px;
+    }
+
+    .top-right {
+        border-bottom-left-radius: 150px;
+    }
+
+    .bottom-left {
+        border-top-right-radius: 150px;
+    }
+
+    .bottom-right {
+        border-top-left-radius: 150px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-top: 10px;
+    }
 }
 
 /* Your existing styles */
@@ -118,4 +118,12 @@ h1 {
 
 .read-the-docs {
   color: #888;
+}
+
+
+.actionButtons {
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 20px;
+    width: 50%;
 }
