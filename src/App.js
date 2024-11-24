@@ -1,10 +1,48 @@
 import React, { useState } from "react";
 import './App.css';
+import NavBar from "./NavBar";
+import LoginForm from "./LoginForm";
 
 const App = () =>
 {
   const [data, setData] = useState([]);
   const [name, setName] = useState("");
+
+
+  const [isShowLogin, setIsShowLogin] = useState(true);
+  const [user, setUser] = useState(null);
+
+  const handleLoginClick = () => {
+    setIsShowLogin((isShowLogin) => !isShowLogin);
+  };
+
+  const handleLogin = (credentials) => {
+    loginUser(credentials);
+  };
+
+  const loginUser = async (credentials) => {
+    try {
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        setUser(result.user); // Assuming the API returns user data.
+        setIsShowLogin(false);
+        const n = credentials.username;
+      } else {
+        alert(result.message || "Login failed!");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("An error occurred during login!");
+    }
+  };
 
   const fetchData = async () =>
   {
@@ -26,6 +64,7 @@ const App = () =>
     fetchData();
   };
 
+
   return (
     /*<div style={{ padding: "20px" }}>
       <h1>MariaDB + Sequelize Example</h1>
@@ -42,18 +81,25 @@ const App = () =>
           <li key={item.id}>{item.name}</li>
         ))}
       </ul>
-    </div>*/
+    </div>
 
 
       <div className="actionButtons">
           <h1>Welcome to Book Collection</h1>
           <div>
-              <button>Login</button>
+              <button onClick={loginUser}>Login</button>
               <button>Sign up</button>
           </div>
+      </div>*/
+
+      <div className="App">
+        <NavBar handleLoginClick={handleLoginClick} user={user} />
+        {isShowLogin && <LoginForm handleLogin={handleLogin} />}
+        {user && <div>Welcome, {user.name || user.username}!</div>}
       </div>
       
   );
 };
+
 
 export default App;
