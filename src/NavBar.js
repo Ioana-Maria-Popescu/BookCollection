@@ -1,15 +1,18 @@
 import React from "react";
 
-function NavBar({ handleLoginClick }) {
-  const handleClick = () => {
-    handleLoginClick();
+function NavBar({ handleActionClick }) {
+  const handleLoginClick = () => {
+    handleActionClick();
+  };
+  const handleSignupClick = () => {
+    //handleActionClick();
   };
   return (
     <div className="actionButtons">
           <h1>Welcome to Book Collection</h1>
           <div>
-              <button onClick={handleClick}>Login</button>
-              <button>Sign up</button>
+              <button onClick={handleLoginClick}>Login</button>
+              <button onClick={handleSignupClick}>Sign up</button>
           </div>
       </div>
 

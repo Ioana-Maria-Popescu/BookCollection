@@ -1,13 +1,5 @@
 import React, { useState } from "react";
 
-/*function handleSubmit(event) {
-    event.preventDefault();
-      return (
-        <Link className="link" to={'/App'}></Link>
-      );
-  }
-      */
-
 const LoginForm = ({ isShowLogin, handleLogin  }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");

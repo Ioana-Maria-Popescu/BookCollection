@@ -9,10 +9,10 @@ const App = () =>
   const [name, setName] = useState("");
 
 
-  const [isShowLogin, setIsShowLogin] = useState(true);
+  const [isShowLogin, setIsShowLogin] = useState(false);
   const [user, setUser] = useState(null);
 
-  const handleLoginClick = () => {
+  const handleActionClick = () => {
     setIsShowLogin((isShowLogin) => !isShowLogin);
   };
 
@@ -32,9 +32,8 @@ const App = () =>
       const result = await response.json();
 
       if (result.success) {
-        setUser(result.user); // Assuming the API returns user data.
+        setUser(result.user);
         setIsShowLogin(false);
-        const n = credentials.username;
       } else {
         alert(result.message || "Login failed!");
       }
@@ -66,36 +65,10 @@ const App = () =>
 
 
   return (
-    /*<div style={{ padding: "20px" }}>
-      <h1>MariaDB + Sequelize Example</h1>
-      <input
-        type="text"
-        placeholder="Enter name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <button onClick={addData}>Add</button>
-      <button onClick={fetchData}>Refresh</button>
-      <ul>
-        {data.map((item) => (
-          <li key={item.id}>{item.name}</li>
-        ))}
-      </ul>
-    </div>
-
-
-      <div className="actionButtons">
-          <h1>Welcome to Book Collection</h1>
-          <div>
-              <button onClick={loginUser}>Login</button>
-              <button>Sign up</button>
-          </div>
-      </div>*/
-
       <div className="App">
-        <NavBar handleLoginClick={handleLoginClick} user={user} />
+        <NavBar handleActionClick={handleActionClick} user={user} />
         {isShowLogin && <LoginForm handleLogin={handleLogin} />}
-        {user && <div>Welcome, {user.name || user.username}!</div>}
+        {user && <div>Welcome, { user.name || user.username }!</div>}
       </div>
       
   );
